@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>Phone Recommendation</title>
+    <!-- <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-[url('/static/img/minimalist.jpeg')]">
+        <h1 class="text-3xl font-bold mb-1">Siap KK Phone Store</h1>
+        <h1 class="text-md font-medium mb-2"> Fill out this form so we could give you the best phone recommendation!</h1>
+ 
+      <form action="{{ url_for('predict')}}" method="post" class=" ">
+        <div class="flex flex-col w-1/2 mx-auto px-3 py-3 bg-gradient-to-r from-cyan-700 to-teal-400 rounded-lg ">
+          <h3 class="text-lg font-light text-white ">Phone Recommendation</h3>
+          <div class="mb-3 px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg" >
+            <label> Phone's rating </label>
+            <br>
+            <input  class="w-4/5" type="range" id="rating" name="rating" required="required" list="tickmarks" min="1" max="10" step="1" />
+              <datalist id="tickmarks" class="flex flex-row justify-between w-4/5">
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+                <option value="6" label="6"></option>
+                <option value="7" label="7"></option>
+                <option value="8" label="8"></option>
+                <option value="9" label="9"></option>
+                <option value="10" label="10"></option>
+              </datalist>
+          </div>
+          <div class="mb-3 px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg">
+            <label> Phone's OS </label>
+            <br>
+            <input type="radio" id="Android" name="operating system" value="Android">
+            <label for="Android">Android</label>
+            <input type="radio" id="iOS" name="operating system" value="iOS">
+            <label for="iOS">iOS</label><br>
+          </div>
+          <div class="mb-3 px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg">
+            <label> Your Budget (in USD) </label>
+            <br>
+            <input class="w-3/4" type="range" name="price" value="325" min="100" max="1000" required="required" oninput="this.nextElementSibling.value = this.value">
+            <output>325</output>
+          </div>
+          <div class="mb-3 px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg">
+            <label> Your age </label>
+            <br>
+              <input class="w-1/5 bg-white/50 shadow-inner rounded-lg pl-3 py-1"
+                type="text"
+                name="age"
+                placeholder="age"
+                required="required"
+              />
+          </div>
+          <div  class="mb-3 px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg">
+            <label> Your Gender </label>
+            <br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="unknown" name="gender" value="unknown">
+            <label for="unknown">Prefer Not to Mention</label>
+            <br>
+          </div>
+          <div class="px-3 py-3 bg-white/50 backdrop-blur-sm rounded-lg">
+            <label> Your Job </label>
+            <br>
+              <input class="w-1/4 bg-white/50 shadow-inner rounded-lg pl-3 py-1"
+                type="text"
+                name="occupation"
+                placeholder="occupation"
+                required="required"
+              />
+          </div>
+        </div>
+        <div class="w-1/2 mx-auto px-[-1] py-3">
+        <button type="submit" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Find my personal phone
+          </span>
+        </button>
+      </div>
+      </form>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>
